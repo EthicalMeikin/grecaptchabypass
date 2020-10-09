@@ -1,0 +1,15 @@
+certifi==2020.6.20
+chardet==3.0.4
+colorama==0.4.3
+cssselect==1.1.0
+idna==2.10
+lxml==4.5.2
+parsel==1.6.0
+Pillow==7.2.0
+pydub==0.24.1
+requests==2.24.0
+selenium==3.141.0
+six==1.15.0
+SpeechRecognition==3.8.1
+urllib3==1.25.10
+w3lib==1.22.0
