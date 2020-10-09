@@ -1,0 +1,7 @@
+site_name: grecaptchabypass
+theme: readthedocs
+pages:
+- Início: /
+- Introdução e Instalação: introduction-and-installation.md
+- Documentação dos Objetos: objects-documentation.md
+- Extra: extra.md
