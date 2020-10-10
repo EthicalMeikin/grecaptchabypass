@@ -54,7 +54,7 @@ manipular.*
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Método que adiciona uma borda verde no
 ReCAPTCHA com o propósito de localiza-lo.*
 <center>
-  ![](https://image.prntscr.com/image/l0Q21HJrTgS7JS9NMcCXVA.png)
+  ![](https://github.com/EthicalMeikin/grecaptchabypass/raw/master/assets/ReCAPTCHA_show.png)
 </center>
 
 &nbsp;&nbsp;&nbsp;**def** *hide*
@@ -62,7 +62,7 @@ ReCAPTCHA com o propósito de localiza-lo.*
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Método que remove a borda verde do
 ReCAPTCHA para ocultar a exposição da localização.*
 <center>
-  ![](https://image.prntscr.com/image/49a_g1nNQdKeOwyKSkDoRA.png)
+  ![](https://github.com/EthicalMeikin/grecaptchabypass/raw/master/assets/ReCAPTCHA_hide.png)
 </center>
 
 &nbsp;&nbsp;&nbsp;**def** <span id="ReCAPTCHA.solve">_**solve**_</span>
@@ -70,7 +70,7 @@ ReCAPTCHA para ocultar a exposição da localização.*
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Método que soluciona o ReCAPTCHA e retorna o código de resposta e os cookies atual do site.*
 <center>
   <img
-    src="https://image.prntscr.com/image/ogURVoIoQIu_SLJVJqvJEQ.png"
+    src="https://github.com/EthicalMeikin/grecaptchabypass/raw/master/assets/ReCAPTCHA_solve.png"
     width="600"
   />
 </center>
