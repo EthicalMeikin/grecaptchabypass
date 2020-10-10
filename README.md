@@ -4,7 +4,7 @@
   <img src="https://image.prntscr.com/image/_buFoHQMQ2S6TmMWrYi_zw.png"/>
 </center>
 
-![](https://img.shields.io/badge/grecaptchabypass-v2.0.0-dodgerblue.svg)
+![](https://img.shields.io/badge/grecaptchabypass-v2.0.2b0-dodgerblue.svg)
 [![Python 3.7+](https://img.shields.io/badge/Python-3.7+-dodgerblue.svg)](https://www.python.org/downloads/)
 [![WebDriver Geckodriver](https://img.shields.io/badge/WebDriver-GeckoDriver-dodgerblue.svg)](https://github.com/mozilla/geckodriver/releases)
 [![Apoia-se](https://img.shields.io/badge/Apoie-apoia.se-dodgerblue.svg)](https://apoia.se/grecaptchabypass)
@@ -107,6 +107,6 @@ produzidos e com mais assuntos interessantes.
 Para realizar a instalação via PyPi, apenas digite esta única linha de comando:
 `pip install grecaptchabypass`.
 
-Clique no botão abaixo para ler a documentação completa.
+Veja a documentação completa.
 
 [<img src="https://bestbooks.thelargelibrary.com/BUTTON/BUTTON4.png" width="100">](https://grecaptchabypass.readthedocs.io/)
