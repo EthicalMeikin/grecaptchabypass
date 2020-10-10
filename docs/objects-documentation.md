@@ -32,13 +32,6 @@ parse da página.*
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Método que retorna uma lista de
 instâncias da classe [ReCAPTCHA](#manipulador-do-recaptcha) que referencia
 cada Google ReCAPTCHA atual da página que foi obtido.*
-
-<center>
-  <img
-    src="https://image.prntscr.com/image/OD7_MY7uQtKc44RF5nvcqw.png"
-    width="600"
-  />
-</center>
 <br/><br/>
 
 
