@@ -59,7 +59,7 @@ manipular.*
 &nbsp;&nbsp;&nbsp;**def** *show*
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Método que adiciona uma borda verde no
-ReCAPTCHA com o propósito de localizar o ReCAPTCHA.*
+ReCAPTCHA com o propósito de localiza-lo.*
 <center>
   ![](https://image.prntscr.com/image/l0Q21HJrTgS7JS9NMcCXVA.png)
 </center>
