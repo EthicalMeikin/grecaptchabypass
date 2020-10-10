@@ -1,5 +1,6 @@
 # Bibliotecas nativas.
 import os
+import re
 import setuptools
 
 
@@ -12,7 +13,7 @@ def readFile(filepath: str) -> str:
 
     # Abrindo e lendo arquivo README.
     with open(FILE_PATH, "r", encoding="utf8") as _file:
-        return _file.read()
+        return re.sub("</?(link|center)[^>]*>", "", _file.read())
 
 
 # Lendo arquivo README.md.
@@ -23,7 +24,7 @@ REQUIREMENTS = filter(lambda x: x, readFile("requirements.txt").splitlines())
 
 setuptools.setup(
     name="grecaptchabypass",
-    version="2.0.0",
+    version="2.0.2b0",
     description="Quebre múltiplos Google reCAPTCHAs de uma página.",
     long_description=README_CONTENT,
     long_description_content_type="text/markdown",
