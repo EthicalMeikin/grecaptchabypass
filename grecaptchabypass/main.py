@@ -715,4 +715,4 @@ class Bypass:
 
 
 # Verificando se o projeto local está desatualizado.
-# ProjectVersion.verifyModuleVersion()
+ProjectVersion.verifyModuleVersion()
