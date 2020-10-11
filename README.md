@@ -29,7 +29,7 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
   - *1.1* [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)
   - *1.2* [Observações e Avisos Legais](/#observacoes-e-avisos-legais)
   - *1.3* [Recomendações](/#recomendacoes)<br/><br/>
-<!-- * *2.* [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)
+* *2.* [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)
   - *2.1* [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)
   - *2.2* [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)
   - *2.3* [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/><br/>
@@ -45,7 +45,7 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
   - *4.3* [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)
   - *4.4* [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
 
-<br/><br/> -->
+<br/><br/>
 
 ## O que esta nova versão tem à oferecer?
 
