@@ -45,6 +45,7 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
     - _4.2_ [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)
     - _4.3_ [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)
     - _4.4_ [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
+
     </div>
     <br/><br/>
 
