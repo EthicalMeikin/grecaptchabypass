@@ -25,24 +25,24 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 
 ## Sumário
 
-_1._  [Início: Saiba informações sobre a biblioteca](/)<br/>
+_1._ [Início: Saiba informações sobre a biblioteca](/)<br/>
 &nbsp;&nbsp;_1.1_ [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)<br/>
 &nbsp;&nbsp;_1.2_ [Observações e Avisos Legais](/#observacoes-e-avisos-legais)<br/>
 &nbsp;&nbsp;_1.3_ [Recomendações](/#recomendacoes)<br/>
 
-_2._  [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)<br/>
+_2._ [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)<br/>
 &nbsp;&nbsp;_2.1_ [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)<br/>
 &nbsp;&nbsp;_2.2_ [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)<br/>
 &nbsp;&nbsp;_2.3_ [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/>
 
-_3._  [Documentação dos Objetos](/objects-documentation)<br/>
+_3._ [Documentação dos Objetos](/objects-documentation)<br/>
 &nbsp;&nbsp;_3.1_ [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)<br/>
 &nbsp;&nbsp;_3.2_ [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)<br/>
 &nbsp;&nbsp;_3.3_ [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)<br/>
 &nbsp;&nbsp;_3.4_ [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)<br/>
 &nbsp;&nbsp;_3.5_ [Exceções](/objects-documentation/#excecoes)<br/>
 
-_4._  [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)<br/>
+_4._ [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)<br/>
 &nbsp;&nbsp;_4.1_ [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)<br/>
 &nbsp;&nbsp;_4.2_ [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)<br/>
 &nbsp;&nbsp;_4.3_ [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)<br/>
