@@ -26,27 +26,27 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 ## Sumário
 
 1. [Início: Saiba informações sobre a biblioteca](/)<br/>
-&nbsp;&nbsp;_1.1_ [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)<br/>
-&nbsp;&nbsp;_1.2_ [Observações e Avisos Legais](/#observacoes-e-avisos-legais)<br/>
-&nbsp;&nbsp;_1.3_ [Recomendações](/#recomendacoes)<br/>
+&nbsp;1.1 [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)<br/>
+&nbsp;1.2 [Observações e Avisos Legais](/#observacoes-e-avisos-legais)<br/>
+&nbsp;1.3 [Recomendações](/#recomendacoes)<br/><br/>
 
 2. [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)<br/>
-&nbsp;&nbsp;_2.1_ [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)<br/>
-&nbsp;&nbsp;_2.2_ [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)<br/>
-&nbsp;&nbsp;_2.3_ [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/>
+&nbsp;2.1 [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)<br/>
+&nbsp;2.2 [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)<br/>
+&nbsp;2.3 [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/><br/>
 
 3. [Documentação dos Objetos](/objects-documentation)<br/>
-&nbsp;&nbsp;_3.1_ [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)<br/>
-&nbsp;&nbsp;_3.2_ [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)<br/>
-&nbsp;&nbsp;_3.3_ [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)<br/>
-&nbsp;&nbsp;_3.4_ [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)<br/>
-&nbsp;&nbsp;_3.5_ [Exceções](/objects-documentation/#excecoes)<br/>
+&nbsp;3.1 [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)<br/>
+&nbsp;3.2 [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)<br/>
+&nbsp;3.3 [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)<br/>
+&nbsp;3.4 [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)<br/>
+&nbsp;3.5 [Exceções](/objects-documentation/#excecoes)<br/><br/>
 
 4. [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)<br/>
-&nbsp;&nbsp;_4.1_ [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)<br/>
-&nbsp;&nbsp;_4.2_ [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)<br/>
-&nbsp;&nbsp;_4.3_ [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)<br/>
-&nbsp;&nbsp;_4.4_ [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)<br/>
+&nbsp;4.1 [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)<br/>
+&nbsp;4.2 [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)<br/>
+&nbsp;4.3 [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)<br/>
+&nbsp;4.4 [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)<br/>
 
 ## O que esta nova versão tem à oferecer?
 
