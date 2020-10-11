@@ -25,26 +25,26 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 
 ## Sumário
 
-* _1._ [Início: Saiba informações sobre a biblioteca](/)
-  - _1.1_ [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)
-  - _1.2_ [Observações e Avisos Legais](/#observacoes-e-avisos-legais)
-  - _1.3_ [Recomendações](/#recomendacoes)<br/><br/>
-* _2._ [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)
-  - _2.1_ [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)
-  - _2.2_ [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)
-  - _2.3_ [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/><br/>
-* _3._ [Documentação dos Objetos](/objects-documentation)
-  - _3.1_ [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)
-  - _3.2_ [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)
-  - _3.3_ [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)
-  - _3.4_ [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)
-  - _3.5_ [Exceções](/objects-documentation/#excecoes)<br/><br/>
-* _4._ [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)
-  - _4.1_ [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)
-  - _4.2_ [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)
-  - _4.3_ [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)
-  - _4.4_ [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
-  
+* *1.* [Início: Saiba informações sobre a biblioteca](/)
+  - *1.1* [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)
+  - *1.2* [Observações e Avisos Legais](/#observacoes-e-avisos-legais)
+  - *1.3* [Recomendações](/#recomendacoes)<br/><br/>
+* *2.* [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)
+  - *2.1* [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)
+  - *2.2* [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)
+  - *2.3* [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/><br/>
+* *3.* [Documentação dos Objetos](/objects-documentation)
+  - *3.1* [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)
+  - *3.2* [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)
+  - *3.3* [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)
+  - *3.4* [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)
+  - *3.5* [Exceções](/objects-documentation/#excecoes)<br/><br/>
+* *4.* [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)
+  - *4.1* [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)
+  - *4.2* [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)
+  - *4.3* [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)
+  - *4.4* [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
+
 <br/><br/>
 
 ## O que esta nova versão tem à oferecer?
