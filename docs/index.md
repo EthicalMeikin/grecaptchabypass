@@ -24,7 +24,6 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 [Apoie](https://apoia.se/grecaptchabypass) :)_
 
 ## Sumário
-<div class="no-list-style">
 
 * _1._ [Início: Saiba informações sobre a biblioteca](/)
   - _1.1_ [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)
@@ -46,7 +45,6 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
   - _4.3_ [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)
   - _4.4_ [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
 
-</div>
 <br/><br/>
 
 ## O que esta nova versão tem à oferecer?
