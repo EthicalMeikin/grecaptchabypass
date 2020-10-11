@@ -24,25 +24,28 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 [Apoie](https://apoia.se/grecaptchabypass) :)_
 
 ## Sumário
-  * [Início: Saiba informações sobre a biblioteca](https://grecaptchabypass.readthedocs.io/)
-    - [O que esta nova versão tem à oferecer?](https://grecaptchabypass.readthedocs.io/#o-que-esta-nova-versao-tem-a-oferecer)
-    - [Observações e Avisos Legais](https://grecaptchabypass.readthedocs.io/#observacoes-e-avisos-legais)
-    - [Recomendações](https://grecaptchabypass.readthedocs.io/#recomendacoes)<br/><br/>
-  * [Introdução e Instalação: Formas de instalação da biblioteca.](https://grecaptchabypass.readthedocs.io/introduction-and-installation)
-    - [Instalação via Python Package Index (PIP)](https://grecaptchabypass.readthedocs.io/introduction-and-installation/#instalacao-via-python-package-index-pip)
-    - [Instalação via GIT](https://grecaptchabypass.readthedocs.io/introduction-and-installation/#instalacao-via-git)
-    - [Primeiros Passos](https://grecaptchabypass.readthedocs.io/introduction-and-installation/#primeiros-passos)<br/><br/>
-  * [Documentação dos Objetos](https://grecaptchabypass.readthedocs.io/objects-documentation)
-    - [Obtendo instância do webdriver do Firefox](https://grecaptchabypass.readthedocs.io/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)
-    - [Criando Parser da Nossa Página](https://grecaptchabypass.readthedocs.io/objects-documentation/#criando-parser-da-nossa-pagina)
-    - [Manipulador do ReCAPTCHA](https://grecaptchabypass.readthedocs.io/objects-documentation/#manipulador-do-recaptcha)
-    - [Estados do ReCAPTCHA](https://grecaptchabypass.readthedocs.io/objects-documentation/#estados-do-recaptcha)
-    - [Exceções](https://grecaptchabypass.readthedocs.io/objects-documentation/#excecoes)<br/><br/>
-  * [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](https://grecaptchabypass.readthedocs.io/extra)
-    - [O que é uma requisição?](https://grecaptchabypass.readthedocs.io/extra/#o-que-e-uma-requisicao)
-    - [O que são Cookies e como funcionam?](https://grecaptchabypass.readthedocs.io/extra/#o-que-sao-cookies-e-como-funcionam)
-    - [O que são Sessões e como funcionam?](https://grecaptchabypass.readthedocs.io/extra/#o-que-sao-sessoes-e-como-funcionam)
-    - [O que é um Google reCAPTCHA e como funciona?](https://grecaptchabypass.readthedocs.io/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
+  <div class="no-list-style">
+
+  * _1._ [Início: Saiba informações sobre a biblioteca](/)
+    - _1.1_ [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)
+    - _1.2_ [Observações e Avisos Legais](/#observacoes-e-avisos-legais)
+    - _1.3_ [Recomendações](/#recomendacoes)<br/><br/>
+  * _2._ [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)
+    - _2.1_ [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)
+    - _2.2_ [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)
+    - _2.3_ [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/><br/>
+  * _3._ [Documentação dos Objetos](/objects-documentation)
+    - _3.1_ [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)
+    - _3.2_ [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)
+    - _3.3_ [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)
+    - _3.4_ [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)
+    - _3.5_ [Exceções](/objects-documentation/#excecoes)<br/><br/>
+  * _4._ [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)
+    - _4.1_ [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)
+    - _4.2_ [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)
+    - _4.3_ [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)
+    - _4.4_ [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
+    </div>
     <br/><br/>
 
 ## O que esta nova versão tem à oferecer?
