@@ -14,6 +14,11 @@ table {
 th, td {
   padding: 7px;
   width: 100vw;
+  vertical-align: middle;
+}
+
+td img {
+    margin: 0 auto;
 }
 
 code:not([class]) {

@@ -108,10 +108,10 @@ minha vida pessoal e financeira, então eu agradeço grandemente à todas as
 pessoas pela sua maravilhosa contribuição, **Muito Obrigado! <3**
 <br/><br/>
 
-<center>
+<span align="center">
 
 | Rank | Perfils | Nome | Data |
 |-|-|-|-|
 | #1   | <img src="https://www.gravatar.com/avatar/3516fabc30e2a6a444de239f80b133cd?d=mp" width="25"/> | Lucas Barros | 10/12/20 às 04:16:46 |
 
-</center>
+</span>
