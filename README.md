@@ -84,6 +84,14 @@ simulação do cursor de usuário e consequentemente estourando uma exceção, e
 o uso dessas ferramentas que ocupem o viewport enquanto a quebra do reCAPTCHA
 estiver em andamento.<br/><br/>
 
+## Introdução & Instalação
+
+Para realizar a instalação via PyPi, apenas digite esta única linha de comando:
+`pip install grecaptchabypass`.
+
+**Clique no botão abaixo para ver a documentação completa**
+
+[<img src="https://bestbooks.thelargelibrary.com/BUTTON/BUTTON4.png" width="100">](https://grecaptchabypass.readthedocs.io/)<br/><br/>
 
 ## Recomendações
 [**Eduardo Mendes**](http://youtube.com/c/eduardomendes) é um canal mega didático
@@ -102,11 +110,8 @@ produzidos e com mais assuntos interessantes.
  definidos por sugestões dos espectadores._
 
 
-## Introdução & Instalação
+## Obrigado por apoiarem! :)
 
-Para realizar a instalação via PyPi, apenas digite esta única linha de comando:
-`pip install grecaptchabypass`.
-
-**Clique no botão abaixo para ver a documentação completa**
-
-[<img src="https://bestbooks.thelargelibrary.com/BUTTON/BUTTON4.png" width="100">](https://grecaptchabypass.readthedocs.io/)
+| Rank | Perfil                                                                                                         | Nome                                         | Data                 |
+|------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------|----------------------|
+| #1   | <center><img src="https://www.gravatar.com/avatar/3516fabc30e2a6a444de239f80b133cd?d=mp" width="25"/></center> | Lucas Barros                                 | 10/12/20 às 04:16:46 |
