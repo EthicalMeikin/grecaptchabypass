@@ -13,7 +13,7 @@ table {
 
 th, td {
   padding: 7px;
-  text-align: center;
+  width: 100vw;
 }
 
 code:not([class]) {
