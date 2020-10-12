@@ -1,10 +1,10 @@
-<link rel="stylesheet" href="https://gist.githubusercontent.com/EthicalMeikin/c4d7bf093ba6ef5710924adf80009dba/raw/b07036c7e122fa8e14541d2ed8da3eb1774a3d1c/index.css">
+<link rel="stylesheet" href="https://grecaptchabypass.readthedocs.io/index.css">
 
 <center>
   <img src="https://image.prntscr.com/image/_buFoHQMQ2S6TmMWrYi_zw.png"/>
 </center>
 
-![](https://img.shields.io/badge/grecaptchabypass-v2.0.2b2-dodgerblue.svg)
+![](https://img.shields.io/badge/grecaptchabypass-v2.0.2b1-dodgerblue.svg)
 [![Python 3.7+](https://img.shields.io/badge/Python-3.7+-dodgerblue.svg)](https://www.python.org/downloads/)
 [![WebDriver Geckodriver](https://img.shields.io/badge/WebDriver-GeckoDriver-dodgerblue.svg)](https://github.com/mozilla/geckodriver/releases)
 [![Apoia-se](https://img.shields.io/badge/Apoie-apoia.se-dodgerblue.svg)](https://apoia.se/grecaptchabypass)
@@ -25,27 +25,25 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 
 ## Sumário
 
-* *1.* [Início: Saiba informações sobre a biblioteca](/)
-- *1.1* [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)
-- *1.2* [Observações e Avisos Legais](/#observacoes-e-avisos-legais)
-- *1.3* [Recomendações](/#recomendacoes)<br/><br/>
-* *2.* [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)
-- *2.1* [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)
-- *2.2* [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)
-- *2.3* [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/><br/>
-* *3.* [Documentação dos Objetos](/objects-documentation)
-- *3.1* [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)
-- *3.2* [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)
-- *3.3* [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)
-- *3.4* [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)
-- *3.5* [Exceções](/objects-documentation/#excecoes)<br/><br/>
-* *4.* [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)
-- *4.1* [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)
-- *4.2* [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)
-- *4.3* [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)
-- *4.4* [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)
-
-<br/><br/>
+1. [Início: Saiba informações sobre a biblioteca](/)<br/>
+1.1 [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)<br/>
+1.2 [Observações e Avisos Legais](/#observacoes-e-avisos-legais)<br/>
+1.3 [Recomendações](/#recomendacoes)<br/><br/>
+2. [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)<br/>
+2.1 [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)<br/>
+2.2 [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)<br/>
+2.3 [Primeiros Passos](/introduction-and-installation/#primeiros-passos)<br/><br/>
+3. [Documentação dos Objetos](/objects-documentation)<br/>
+3.1 [Obtendo instância do webdriver do Firefox](/objects-documentation/#obtendo-instancia-do-webdriver-do-firefox)<br/>
+3.2 [Criando Parser da Nossa Página](/objects-documentation/#criando-parser-da-nossa-pagina)<br/>
+3.3 [Manipulador do ReCAPTCHA](/objects-documentation/#manipulador-do-recaptcha)<br/>
+3.4 [Estados do ReCAPTCHA](/objects-documentation/#estados-do-recaptcha)<br/>
+3.5 [Exceções](/objects-documentation/#excecoes)<br/><br/>
+4. [Extra: Descubra como funcionam requisições, cookies, sessões e o reCAPTCHA.](/extra)<br/>
+4.1 [O que é uma requisição?](/extra/#o-que-e-uma-requisicao)<br/>
+4.2 [O que são Cookies e como funcionam?](/extra/#o-que-sao-cookies-e-como-funcionam)<br/>
+4.3 [O que são Sessões e como funcionam?](/extra/#o-que-sao-sessoes-e-como-funcionam)<br/>
+4.4 [O que é um Google reCAPTCHA e como funciona?](/extra/#o-que-e-um-google-recaptcha-e-como-funciona)<br/>
 
 ## O que esta nova versão tem à oferecer?
 
@@ -109,6 +107,6 @@ produzidos e com mais assuntos interessantes.
 Para realizar a instalação via PyPi, apenas digite esta única linha de comando:
 `pip install grecaptchabypass`.
 
-Veja a documentação completa.
+**Clique no botão abaixo para ver a documentação completa**
 
 [<img src="https://bestbooks.thelargelibrary.com/BUTTON/BUTTON4.png" width="100">](https://grecaptchabypass.readthedocs.io/)
