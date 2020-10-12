@@ -102,8 +102,11 @@ produzidos e com mais assuntos interessantes.
  definidos por sugestões dos espectadores._<br/><br/>
 
 
-## Obrigado por apoiarem! :)
-
+## Agradecimentos aos apoiadores
+É com o apoio de vocês que este projeto é melhorado e que também ajuda com
+minha vida pessoal e financeira, então eu agradeço grandemente à todas as
+pessoas pela sua maravilhosa contribuição, **Muito Obrigado! <3**
+<br/><br/>
 | Rank | Perfil                                                                                                         | Nome                                         | Data                 |
 |------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------|----------------------|
 | #1   | <center><img src="https://www.gravatar.com/avatar/3516fabc30e2a6a444de239f80b133cd?d=mp" width="25"/></center> | Lucas Barros                                 | 10/12/20 às 04:16:46 |
