@@ -99,4 +99,11 @@ produzidos e com mais assuntos interessantes.
  - [**Curso de Selenium**](http://encurtador.com.br/hEHY9): _Aprenda à utilizar
  mais que o básico do Selenium no Python._
  - [**Live de Python**](http://encurtador.com.br/cpIU3): _Aprenda diversos assuntos
- definidos por sugestões dos espectadores._
+ definidos por sugestões dos espectadores._<br/><br/>
+
+
+## Obrigado por apoiarem! :)
+
+| Rank | Perfil                                                                                                         | Nome                                         | Data                 |
+|------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------|----------------------|
+| #1   | <center><img src="https://www.gravatar.com/avatar/3516fabc30e2a6a444de239f80b133cd?d=mp" width="25"/></center> | Lucas Barros                                 | 10/12/20 às 04:16:46 |

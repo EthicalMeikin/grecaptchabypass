@@ -7,8 +7,13 @@ body, .wy-nav-content {
     list-style: none !important;
   }
 
+table {
+  width: 100%;
+}
+
 th, td {
   padding: 7px;
+  text-align: center;
 }
 
 code:not([class]) {
