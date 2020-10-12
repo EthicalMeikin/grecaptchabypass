@@ -8,7 +8,7 @@ body, .wy-nav-content {
   }
 
 table {
-  width: 100%;
+  width: 100% !important;
 }
 
 th, td {
