@@ -110,7 +110,7 @@ pessoas pela sua maravilhosa contribuição, **Muito Obrigado! <3**
 
 <span align="center">
 
-| Rank | Perfils | Nome | Data |
+| Rank | Perfil | Nome | Data |
 |-|-|-|-|
 | #1   | <img src="https://www.gravatar.com/avatar/3516fabc30e2a6a444de239f80b133cd?d=mp" width="25"/> | Lucas Barros | 10/12/20 às 04:16:46 |
 
