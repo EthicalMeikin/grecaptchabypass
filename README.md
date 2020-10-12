@@ -28,7 +28,8 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 1. [Início: Saiba informações sobre a biblioteca](/)<br/>
 1.1 [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)<br/>
 1.2 [Observações e Avisos Legais](/#observacoes-e-avisos-legais)<br/>
-1.3 [Recomendações](/#recomendacoes)<br/><br/>
+1.3 [Recomendações](/#recomendacoes)
+1.4 [Agradecimentos aos apoiadores](/#Agradecimentos-aos-apoiadores)<br/><br/>
 2. [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)<br/>
 2.1 [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)<br/>
 2.2 [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)<br/>
@@ -89,8 +90,6 @@ estiver em andamento.<br/><br/>
 Para realizar a instalação via PyPi, apenas digite esta única linha de comando:
 `pip install grecaptchabypass`.
 
-**Clique no botão abaixo para ver a documentação completa**
-
 [<img src="https://bestbooks.thelargelibrary.com/BUTTON/BUTTON4.png" width="100">](https://grecaptchabypass.readthedocs.io/)<br/><br/>
 
 ## Recomendações
@@ -110,8 +109,11 @@ produzidos e com mais assuntos interessantes.
  definidos por sugestões dos espectadores._
 
 
-## Obrigado por apoiarem! :)
-
+## Agradecimentos aos apoiadores
+É com o apoio de vocês que este projeto é melhorado e que também me ajuda com
+minha vida pessoal e financeira, então eu agradeço a todas as pessoas pela sua
+maravilhosa contribuição, **muito obrigado! <3**
+<br/>
 | Rank | Perfil                                                                                                         | Nome                                         | Data                 |
 |------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------|----------------------|
 | #1   | <center><img src="https://www.gravatar.com/avatar/3516fabc30e2a6a444de239f80b133cd?d=mp" width="25"/></center> | Lucas Barros                                 | 10/12/20 às 04:16:46 |
