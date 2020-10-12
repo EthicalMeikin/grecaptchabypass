@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://raw.githubusercontent.com/EthicalMeikin/grecaptchabypass/master/docs/index.css">
+<link rel="stylesheet" href="https://grecaptchabypass.readthedocs.io/index.css">
 
 <center>
   <img src="https://image.prntscr.com/image/_buFoHQMQ2S6TmMWrYi_zw.png"/>
