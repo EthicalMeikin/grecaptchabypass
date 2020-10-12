@@ -24,7 +24,7 @@ REQUIREMENTS = filter(lambda x: x, readFile("requirements.txt").splitlines())
 
 setuptools.setup(
     name="grecaptchabypass",
-    version="2.0.2b1",
+    version="1.0.0",
     description="Quebre múltiplos Google reCAPTCHAs de uma página.",
     long_description=README_CONTENT,
     long_description_content_type="text/markdown",
