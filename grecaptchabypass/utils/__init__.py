@@ -1,8 +1,38 @@
+"""
+                    GNU GENERAL PUBLIC LICENSE
+                      Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+ To do:
+    - Util to keep current frame using context manager.
+    - Docstrings on objects.
+    - Tests with behave or unittest.
+"""
+
 from ..lib import (
     _selenium, _time
 )
 
 from typing import Tuple
+
+
+class _KeepCurrentFrame:
+    def __init__(self, utils: object):
+        self.utils = utils
+
+    def __enter__(self):
+        # Salvando o frame atual.
+        self.current_frame = self.utils.getCurrentFrame()
+
+    def __exit__(self, *others):
+        # Voltando para o frame anterior (ex-atual).
+        if self.current_frame:
+            self.utils.switchToFrame(self.current_frame)
+        else:
+            self.utils._webdriver.switch_to.default_content()
 
 
 class SeleniumUtils:
@@ -14,11 +44,8 @@ class SeleniumUtils:
         self._frames_database = {}
 
     def addFrameToDatabase(self, frame_element: object):
-        # Obtendo o nome do frame atual.
-        frame_name = self.getFrameName()
-
         # Adicionando o frame atual no banco de dados.
-        self._frames_database[frame_name] = frame_element
+        self._frames_database[self.getFrameName()] = frame_element
 
     def getCurrentFrame(self) -> str:
         # Obtendo o nome do frame atual.
@@ -71,34 +98,27 @@ class SeleniumUtils:
             driver=self._webdriver
         )
 
-        # Obtendo o frame atual.
-        current_frame = self.getCurrentFrame()
+        with self.keepCurrentFrame():
+            # Obtendo a posição do centro do elemento.
+            element_posx, element_posy = self.getElementCenterPosition(
+                element=element
+            )
 
-        # Obtendo a posição do centro do elemento.
-        element_posx, element_posy = self.getElementCenterPosition(
-            element=element
-        )
+            # Dando foco para a página principal.
+            self._webdriver.switch_to.default_content()
 
-        # Dando foco para a página principal.
-        self._webdriver.switch_to.default_content()
+            # Ações que farão o mouse se mover na tela.
+            action_chains.move_by_offset(element_posy, element_posx)
+            action_chains.move_by_offset(0, 0)
 
-        # Ações que farão o mouse se mover na tela.
-        action_chains.move_by_offset(element_posy, element_posx)
-        action_chains.move_by_offset(0, 0)
+            # Executando as ações armazenadas.
+            action_chains.perform()
 
-        # Executando as ações armazenadas.
-        action_chains.perform()
+            # Resetando as ações da cadeia de ações.
+            action_chains.reset_actions()
 
-        # Resetando as ações da cadeia de ações.
-        action_chains.reset_actions()
-
-        # Se o frame atual foi obtido.
-        if current_frame:
-            # Dando foco para o frame que estava antes.
-            self.switchToFrame(current_frame)
-
-        # Clicando no elemento.
-        element.click()
+            # Clicando no elemento.
+            element.click()
 
     def scrollTo(self, posx: float, posy: float):
         # Executando JavaScript na página para rolar.
@@ -125,6 +145,9 @@ class SeleniumUtils:
 
         # Adiciona no banco de dados o elemento frame especificado.
         self.addFrameToDatabase(frame_element)
+
+    def keepCurrentFrame(self):
+        return _KeepCurrentFrame(self)
 
     def waitLoadPage(self):
         # Aguardando a página carregar.
