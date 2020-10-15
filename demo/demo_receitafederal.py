@@ -185,7 +185,7 @@ if __name__ == '__main__':
         "corretamente."
     )
 
-    # Entrando na página onde o recaptcha está sendo exibido.
+    # Entrando na página onde o ReCAPTCHA está sendo exibido.
     browser.get(
         'https://servicos.receita.fazenda.gov.br/servicos/cpf/'
         'consultasituacao/ConsultaPublica.asp'
@@ -236,7 +236,7 @@ if __name__ == '__main__':
             )
         }
 
-        # Caso o método pedido não estiver no dicionário.
+        # Caso o método pedido estiver no dicionário.
         if method_name in methods:
             # Executando método escolhido.
             cadastral_data = methods[method_name]()
