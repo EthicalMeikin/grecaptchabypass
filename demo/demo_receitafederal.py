@@ -14,10 +14,10 @@ import time
 from typing import Callable, Dict, List, NamedTuple
 
 # Bibliotecas externas.
+import grecaptchabypass
 import parsel
 import requests
 from selenium.webdriver.support.wait import WebDriverWait
-import grecaptchabypass
 
 
 class ReceitaFederal:
