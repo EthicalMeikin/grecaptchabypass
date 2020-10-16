@@ -4,7 +4,6 @@
   <img src="https://image.prntscr.com/image/_buFoHQMQ2S6TmMWrYi_zw.png"/>
 </center>
 
-![](https://img.shields.io/badge/grecaptchabypass-v2.0.2b1-dodgerblue.svg)
 [![Python 3.7+](https://img.shields.io/badge/Python-3.7+-dodgerblue.svg)](https://www.python.org/downloads/)
 [![WebDriver Geckodriver](https://img.shields.io/badge/WebDriver-GeckoDriver-dodgerblue.svg)](https://github.com/mozilla/geckodriver/releases)
 [![Apoia-se](https://img.shields.io/badge/Apoie-apoia.se-dodgerblue.svg)](https://apoia.se/grecaptchabypass)
