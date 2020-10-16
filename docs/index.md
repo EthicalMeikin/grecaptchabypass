@@ -27,7 +27,8 @@ _Projeto mantido por financiamento coletivo, quer ser um apoiador?
 1. [Início: Saiba informações sobre a biblioteca](/)<br/>
 1.1 [O que esta nova versão tem à oferecer?](/#o-que-esta-nova-versao-tem-a-oferecer)<br/>
 1.2 [Observações e Avisos Legais](/#observacoes-e-avisos-legais)<br/>
-1.3 [Recomendações](/#recomendacoes)<br/><br/>
+1.3 [Recomendações](/#recomendacoes)<br/>
+1.4 [Agradecimentos aos apoiadores](/#Agradecimentos-aos-apoiadores)<br/><br/>
 2. [Introdução e Instalação: Formas de instalação da biblioteca.](/introduction-and-installation)<br/>
 2.1 [Instalação via Python Package Index (PIP)](/introduction-and-installation/#instalacao-via-python-package-index-pip)<br/>
 2.2 [Instalação via GIT](/introduction-and-installation/#instalacao-via-git)<br/>
