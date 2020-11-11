@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://grecaptchabypass.readthedocs.io/index.css">
 
 <center>
-  <img src="https://image.prntscr.com/image/_buFoHQMQ2S6TmMWrYi_zw.png"/>
+  <img src="https://github.com/EthicalMeikin/grecaptchabypass/raw/master/assets/header.png"/>
 </center>
 
 [![Python 3.7+](https://img.shields.io/badge/Python-3.7+-dodgerblue.svg)](https://www.python.org/downloads/)
