@@ -24,60 +24,21 @@ from .cache import ReCAPTCHACache
 from .utils import SeleniumUtils
 
 
-class ProjectVersion:
-    def _extractVersionFlags(version: str):
-        # Retornando as flags da versão.
-        return map(int, _re.compile(r"[0-9]+").findall(version))
+def getBrowserFirefox(headless: bool = True, *args, **kwargs) -> object:
+    """
+    Função responsável por criar uma instância do WebDriver
+    não detectável pelo ReCAPTCHA.
 
-    def _updatedLocalVersion(last_version: List[int],
-                             local_version: List[int]) -> bool:
-        # Iterando cada fragmento da versão.
-        for la, lo in zip(last_version, local_version):
-            # Se a flag da versão local não for menor que o da ultima versão
-            if not lo <= la:
-                # Se verdadeiro, retorna True.
-                return True
+    :args:
+        - headless: bool = True -> Argumento responsável por rodar o Browser
+          em background.
 
-        # Senão, retorna False.
-        return False
+        - *args, **kwargs -> Argumentos adicionais que serão passados na
+          inicialização da instância do WebDriver.
 
-    @classmethod
-    def verifyModuleVersion(cls):
-        # Obtendo o nome do projeto/diretório.
-        project_name = _os.basename(_os.dirname(__file__)).split("-")[0]
-
-        # Enviando comando no shell e extraindo a versão usando regex.
-        local_version = _re.compile(r"Version: ([^\n]+)")\
-            .findall(_subprocess.getoutput(
-                f"python -m pip show {project_name}"
-            ))
-
-        # Realizando requisição para o projeto no pypi e extraindo a versão.
-        last_version = _parsel.Selector(
-            _requests.get(
-                url=f"https://pypi.org/project/{project_name}"
-            ).text
-        ).xpath('//p[@class="release__version"]/text()').get().strip()
-
-        # Se as versões foram obtidas.
-        if all([bool(local_version), bool(last_version)]):
-            # Obtendo se a versão local está desatualizada.
-            _outdated_local_version = not cls._updatedLocalVersion(
-                *map(
-                    cls._extractVersionFlags,
-                    [last_version, local_version[0]]
-                )
-            )
-
-            if _outdated_local_version:
-                # Printa se a versão estiver desatualizada.
-                print(
-                    f"[{project_name}] Versão {last_version} "
-                    "está disponível!"
-                )
-
-
-def getBrowserFirefox(headless=True, *args, **kwargs) -> object:
+    :returns:
+        (object) Instância do WebDriver.
+    """
     # Instanciando opções do firefox.
     options = _selenium.webdriver.FirefoxOptions()
 
@@ -106,6 +67,18 @@ def getBrowserFirefox(headless=True, *args, **kwargs) -> object:
 
 
 class States:
+    """
+    Classe responsável por armazenar os estados do ReCAPTCHA,
+    podendo assim informar o que está havendo.
+
+    :attrs:
+        RECAPTCHA_UNCHECKED       -> Desafio não resolvido.
+        RECAPTCHA_CHECKED         -> Desafio resolvido.
+        RECAPTCHA_EXPIRED         -> Já esteve resolvido mas expirou.
+        RECAPTCHA_IMAGE_CHALLENGE -> Desafio por imagem está selecionado.
+        RECAPTCHA_AUDIO_CHALLENGE -> Desafio por áudio está selecionado.
+        RECAPTCHA_LOADING         -> Aguardando uma ação acontecer.
+    """
     RECAPTCHA_UNCHECKED = "recaptcha_unchecked"
     RECAPTCHA_CHECKED = "recaptcha_checked"
     RECAPTCHA_EXPIRED = "recaptcha_expired"
@@ -115,74 +88,14 @@ class States:
 
 
 class ReCAPTCHA:
-    def _updateRecaptchaFrames(target):
-        def _(instance, *args, **kwargs):
-            # Obtendo o frame atual.
-            current_frame = (
-                instance._webdriver._selenium_utils.getCurrentFrame()
-            )
+    """
+    Classe responsável por manipular um ReCAPTCHA específico da página
+    atual.
 
-            # Dando foco pra a página inicial.
-            instance._webdriver.switch_to.default_content()
-
-            #########################################
-            # Obtendo o frame da caixa do reCAPTCHA #
-            #########################################
-
-            # Lista de Google reCAPCTHAs que foram encontrados.
-            _frame_box = instance._webdriver.find_elements_by_xpath(
-                f"{Bypass._recaptcha_box_element_xpath}"
-                f"[@name='a-{instance._frame_name}']"
-            )
-
-            # Verificando se o reCAPTCHA foi localizado na página.
-            if _frame_box:
-                instance._frame_box = _frame_box[0]
-            else:
-                raise RecaptchaNotFoundException(
-                    "Isn't possible to locate the reCAPTCHA in current page."
-                )
-
-            ###########################################
-            # Obtendo o frame de desafio do reCAPTCHA #
-            ###########################################
-
-            # Lista de desafios de Google reCAPCTHAs que foram encontrados.
-            _all_challenges_for_this_recaptcha = instance\
-                ._webdriver.find_elements_by_xpath(
-                    f"{Bypass._recaptcha_challenge_element_xpath}"
-                    f"[@name='c-{instance._frame_name}']"
-                )
-
-            # verificando se há algum desafio para este reCAPTCHA.
-            if _all_challenges_for_this_recaptcha:
-                # Obtendo último elemento da lista.
-                instance._frame_challenge = (
-                    _all_challenges_for_this_recaptcha[-1]
-                )
-
-                # Dando foco para o frame anterior.
-                if current_frame:
-                    instance._webdriver._selenium_utils.switchToFrame(
-                        current_frame
-                    )
-
-                return target(instance, *args, **kwargs)
-            else:
-                # Mensagem de erro do ReCAPTCHA.
-                message_error = instance._getAnchorErrorMessage()
-
-                # Caso não houver mensagem de erro.
-                if not message_error:
-                    message_error = 'Algo deu errado com o ReCAPTCHA.'
-
-                raise InvalidRecaptchaException(
-                    f"This reCAPTCHA is invalid "
-                    f"({message_error})."
-                )
-
-        return _
-
+    :args:
+        - webdriver: object -> Instância de WebDriver.
+        - frame_name: str -> Nome do frame do ReCAPTCHA.
+    """
     def __init__(self, webdriver: object, frame_name: str):
         # Definindo atributo com o WebDriver.
         self._webdriver = webdriver
@@ -243,29 +156,104 @@ class ReCAPTCHA:
         # Atributo que irá armazenar o reCAPTCHA Response obtido.
         self._recaptcha_response = ""
 
-        # Escondendo a borda do ReCAPTCHA.
-        self.hide()
+    def _updateRecaptchaFrames(target: Callable = None):
+        """
+        Decorador responsável por atualizar o ReCAPTCHA de forma que mesmo que
+        o elemento do ReCAPTCHA mude seja encontrado novamente.
+
+        :args:
+            - target: Callable = True -> Método que será executado.
+
+        :subargs:
+            - instance: object -> Instância da classe ReCAPTCHA.
+
+            - *args, **kwargs -> Argumentos adicionais que serão passados
+            na execução do método.
+
+        :returns:
+            (object) Instância do WebDriver.
+        """
+        def _(instance: object, *args, **kwargs):
+            with instance._webdriver._selenium_utils.keepCurrentFrame():
+                # Dando foco pra a página inicial.
+                instance._webdriver.switch_to.default_content()
+
+                # Lista de Google reCAPCTHAs que foram encontrados.
+                _frame_box = instance._webdriver.find_elements_by_xpath(
+                    f"{Bypass._recaptcha_box_element_xpath}"
+                    f"[@name='a-{instance._frame_name}']"
+                )
+
+                # Verificando se o reCAPTCHA foi localizado na página.
+                if _frame_box:
+                    instance._frame_box = _frame_box[0]
+                else:
+                    raise RecaptchaNotFoundException(
+                        "Isn't possible to locate the reCAPTCHA in "
+                        "current page."
+                    )
+
+                # Lista de desafios de Google reCAPCTHAs que foram encontrados.
+                _all_challenges_for_this_recaptcha = instance\
+                    ._webdriver.find_elements_by_xpath(
+                        f"{Bypass._recaptcha_challenge_element_xpath}"
+                        f"[@name='c-{instance._frame_name}']"
+                    )
+
+                # verificando se há algum desafio para este reCAPTCHA.
+                if _all_challenges_for_this_recaptcha:
+                    # Obtendo último elemento da lista.
+                    instance._frame_challenge = (
+                        _all_challenges_for_this_recaptcha[-1]
+                    )
+
+                    if target:
+                        return target(instance, *args, **kwargs)
+                else:
+                    # Mensagem de erro do ReCAPTCHA.
+                    message_error = instance._getAnchorErrorMessage()
+
+                    # Caso não houver mensagem de erro.
+                    if not message_error:
+                        message_error = (
+                            'A unknown error has ocurred with ReCAPTCHA.'
+                        )
+
+                    raise InvalidRecaptchaException(
+                        f"This reCAPTCHA is invalid "
+                        f"({message_error})."
+                    )
+
+        return _
 
     def _getAnchorErrorMessage(self):
-        # Obtendo o frame atual.
-        current_frame = self._webdriver._selenium_utils.getCurrentFrame()
+        """
+        Método responsável por oter a mensagem de erro exibida na caixa do
+        ReCAPTCHA.
 
-        # Dando foco para a caixa do reCAPTCHA.
-        self._webdriver._selenium_utils.switchToFrame(self._frame_box)
+        :returns:
+            (str) Mensagem de erro do ReCAPTCHA.
+        """
+        with self._webdriver._selenium_utils.keepCurrentFrame():
+            # Dando foco para a caixa do reCAPTCHA.
+            self._webdriver._selenium_utils.switchToFrame(self._frame_box)
 
-        # Obtendo o erro.
-        _error_message = self._webdriver.find_elements_by_class_name(
-            self._class_name["getAnchorErrorMessage"]
-        )
-
-        # Voltando para o frame anterior.
-        if current_frame:
-            self._webdriver._selenium_utils.switchToFrame(current_frame)
+            # Obtendo o erro.
+            _error_message = self._webdriver.find_elements_by_class_name(
+                self._class_name["getAnchorErrorMessage"]
+            )
 
         return _error_message[-1].text.strip() if _error_message else ''
 
     @_updateRecaptchaFrames
     def __repr__(self):
+        """
+        Método especial responsável por retornar a representação do objeto
+        de instância.
+
+        :returns:
+            (str) Representação do objeto.
+        """
         # Obtendo as posições do reCAPTCHA.
         posx, posy = self._frame_box.location.values()
 
@@ -280,51 +268,72 @@ class ReCAPTCHA:
 
     @_updateRecaptchaFrames
     def _checkRecaptchaIsChecked(self):
+        """
+        Método responsável por validar se o ReCAPTCHA está checkado.
+
+        :returns:
+            (bool) Condição se o ReCAPTCHA está checkado.
+        """
         # Verificando se o reCAPTCHA está checkado.
         if self.getState() == States.RECAPTCHA_CHECKED:
             return True
 
     @_updateRecaptchaFrames
     def _getRecaptchaResponse(self) -> Tuple[str, list]:
+        """
+        Método responsável por obter o Google ReCAPTCHA Response atual do
+        ReCAPTCHA.
+
+        :returns:
+            (bool) Google ReCAPTCHA Response atual do ReCAPTCHA.
+        """
         # Caso não haja um reCAPTCHA Response armazenado.
         if not self._recaptcha_response:
-            # Dando foco para a página principal.
-            self._webdriver.switch_to.default_content()
+            with self._webdriver._selenium_utils.keepCurrentFrame():
+                # Dando foco para a página principal.
+                self._webdriver.switch_to.default_content()
 
-            # Tupla nomeada para o resultado da quebra do reCAPTCHA.
-            nt_grecaptcha_result = _collections.namedtuple(
-                typename="gRecaptchaResult",
-                field_names=["response", "cookies"]
-            )
+                # Tupla nomeada para o resultado da quebra do reCAPTCHA.
+                nt_grecaptcha_result = _collections.namedtuple(
+                    typename="gRecaptchaResult",
+                    field_names=["response", "cookies"]
+                )
 
-            # Obtendo cookies do site atual.
-            _grecaptcha_cookies = list(filter(
-                lambda x: x["domain"] in self._webdriver.current_url,
-                self._webdriver.get_cookies()
-            ))
+                # Obtendo cookies do site atual.
+                _grecaptcha_cookies = list(filter(
+                    lambda x: x["domain"] in self._webdriver.current_url,
+                    self._webdriver.get_cookies()
+                ))
 
-            # Obtendo reCAPTCHA response.
-            _grecaptcha_response = self._webdriver.execute_script(
-                "return window.grecaptcha.getResponse()"
-            )
+                # Obtendo reCAPTCHA response.
+                _grecaptcha_response = self._webdriver.execute_script(
+                    "return window.grecaptcha.getResponse()"
+                )
 
-            # Armazenando a resposta do reCAPTCHA.
-            self._recaptcha_response = nt_grecaptcha_result(
-                _grecaptcha_response, _grecaptcha_cookies
-            )
+                # Armazenando a resposta do reCAPTCHA.
+                self._recaptcha_response = nt_grecaptcha_result(
+                    _grecaptcha_response, _grecaptcha_cookies
+                )
 
         # Retornando resposta do recaptcha.
         return self._recaptcha_response
 
     @_updateRecaptchaFrames
     def _waitFor(self, state: str):
+        """
+        Método responsável por esperar por um estado específico do
+        ReCAPTCHA.
+
+        :args:
+            - state: str -> Estado do ReCAPTCHA à ser esperado.
+        """
         # Esperando o estado especificado aparecer.
         while self.getState() != state:
             _time.sleep(self._poll_frequency)
 
     @_updateRecaptchaFrames
     def _noWaitFor(self, state: str, timeout=20):
-        # TImestamp inicial.
+        # Timestamp inicial.
         initial_timestamp = _time.time()
 
         # Esperando o estado especificado não aparecer.
@@ -381,168 +390,134 @@ class ReCAPTCHA:
 
     @_updateRecaptchaFrames
     def _humanClickInRecaptchaAnchor(self):
-        # Obtendo o frame atual.
-        current_frame = self._webdriver._selenium_utils.getCurrentFrame()
+        with self._webdriver._selenium_utils.keepCurrentFrame():
+            # Dando foco para a página principal.
+            self._webdriver.switch_to.default_content()
 
-        # Dando foco para a página principal.
-        self._webdriver.switch_to.default_content()
+            # Dando scroll até o elemento.
+            self._webdriver._selenium_utils.scrollToElement(self._frame_box)
 
-        # Dando scroll até o elemento.
-        self._webdriver._selenium_utils.scrollToElement(self._frame_box)
+            # Posição da caixa do ReCAPTCHA.
+            boxposx, boxposy = self._frame_box.location.values()
 
-        # Dando foco para a caixa do reCAPTCHA.
-        self._webdriver._selenium_utils.switchToFrame(
-            frame_element=self._frame_box
-        )
-
-        # Clicando no botão de âncora do reCAPTCHA para tentar resolver.
-        self._webdriver._selenium_utils.humanClick(
-            element=self._webdriver.find_element_by_id(
-                self._id["getAnchorButton"]
-            )
-        )
-
-        if current_frame:
+            # Dando foco para a caixa do reCAPTCHA.
             self._webdriver._selenium_utils.switchToFrame(
-                frame_element=current_frame
+                frame_element=self._frame_box
+            )
+
+            # Clicando no botão de âncora do reCAPTCHA para tentar resolver.
+            self._webdriver._selenium_utils.humanClick(
+                element=self._webdriver.find_element_by_id(
+                    self._id["getAnchorButton"]
+                ),
+                additional_x=boxposx,
+                additional_y=boxposy
             )
 
     @_updateRecaptchaFrames
     def _recaptchaChallengeIsDisplayed(self):
-        # Obtendo o frame atual.
-        current_frame = self._webdriver._selenium_utils.getCurrentFrame()
+        with self._webdriver._selenium_utils.keepCurrentFrame():
+            # Dando foco para a página inicial.
+            self._webdriver.switch_to.default_content()
 
-        # Dando foco para a página inicial.
-        self._webdriver.switch_to.default_content()
-
-        # Obtendo se o elemento está sendo exibido.
-        _is_displayed = self._webdriver.find_element_by_xpath(
-            f'//div[div/iframe[@name="c-{self._frame_name}"]]'
-        ).is_displayed()
-
-        if current_frame:
-            self._webdriver._selenium_utils.switchToFrame(
-                frame_element=current_frame
-            )
-
-        return _is_displayed
+            # Obtendo se o elemento está sendo exibido.
+            return self._webdriver.find_element_by_xpath(
+                f'//div[div/iframe[@name="c-{self._frame_name}"]]'
+            ).is_displayed()
 
     @_updateRecaptchaFrames
     def getState(self):
         # Definindo variável padrão caso nenhum IF executar.
         state = None
 
-        # Obtendo o frame atual.
-        current_frame = self._webdriver._selenium_utils.getCurrentFrame()
-
-        ######################################################################
-        # Definindo XPATHs para não exceder limites da PEP8 dentro do if/elif.
-        ######################################################################
         _recaptcha_anchor_xpath = (
             f"//span[@id='{self._id['getAnchorButton']}']"
         )
 
         _recaptcha_expired_xpath = (
-            f"{_recaptcha_anchor_xpath}"
-            f"[contains(@class, '{self._class_name['recaptchaExpired']}')]"
+            f"{_recaptcha_anchor_xpath}[contains("
+            f"@class, '{self._class_name['recaptchaExpired']}')]"
         )
 
         _recaptcha_checked_xpath = (
-            f"{_recaptcha_anchor_xpath}"
-            f"[contains(@class, '{self._class_name['recaptchaChecked']}')]"
+            f"{_recaptcha_anchor_xpath}[contains("
+            f"@class, '{self._class_name['recaptchaChecked']}')]"
         )
 
         _recaptcha_unchecked_xpath = (
-            f"{_recaptcha_anchor_xpath}"
-            f"[contains(@class, '{self._class_name['recaptchaUnchecked']}')]"
+            f"{_recaptcha_anchor_xpath}[contains("
+            f"@class, '{self._class_name['recaptchaUnchecked']}')]"
         )
 
         _recaptcha_loading_xpath = (
-            f"{_recaptcha_anchor_xpath}"
-            f"[contains(@class, '{self._class_name['recaptchaLoading']}')]"
+            f"{_recaptcha_anchor_xpath}[contains("
+            f"@class, '{self._class_name['recaptchaLoading']}')]"
         )
 
-        ######################################################################
-        # Encurtando os métodos de pesquisa por elemento.
-        ######################################################################
+        # Encurtando métodos para não exceder a PEP8.
         _find_by_class_name = self._webdriver.find_elements_by_class_name
         _find_by_xpath = self._webdriver.find_elements_by_xpath
 
         # Enquanto o reCAPTCHA não houver algum estado.
         while not state:
-            # Dando foco para o frame de desafios.
-            self._webdriver._selenium_utils.switchToFrame(
-                self._frame_challenge
-            )
+            with self._webdriver._selenium_utils.keepCurrentFrame():
+                # Dando foco para o frame de desafios.
+                self._webdriver._selenium_utils.switchToFrame(
+                    self._frame_challenge
+                )
 
-            # Se houver o desafio por imagem.
-            if _find_by_class_name(self._class_name["imageChallenge"]):
-                state = States.RECAPTCHA_IMAGE_CHALLENGE
-            # Se houver o desafio por audio.
-            elif _find_by_class_name(self._class_name["audioChallenge"]):
-                state = States.RECAPTCHA_AUDIO_CHALLENGE
+                # Se houver o desafio por imagem.
+                if _find_by_class_name(self._class_name["imageChallenge"]):
+                    state = States.RECAPTCHA_IMAGE_CHALLENGE
+                # Se houver o desafio por audio.
+                elif _find_by_class_name(self._class_name["audioChallenge"]):
+                    state = States.RECAPTCHA_AUDIO_CHALLENGE
 
-            # Dando foco para o frame da caixa do reCAPTCHA.
-            self._webdriver._selenium_utils.switchToFrame(self._frame_box)
+                # Dando foco para o frame da caixa do reCAPTCHA.
+                self._webdriver._selenium_utils.switchToFrame(self._frame_box)
 
-            # Se o reCAPTCHA estiver expirado.
-            if _find_by_xpath(_recaptcha_expired_xpath):
-                state = States.RECAPTCHA_EXPIRED
-            # Se o reCAPTCHA estiver checkado.
-            elif _find_by_xpath(_recaptcha_loading_xpath):
-                state = States.RECAPTCHA_LOADING
-            # Se o reCAPTCHA estiver checkado.
-            elif _find_by_xpath(_recaptcha_checked_xpath):
-                state = States.RECAPTCHA_CHECKED
-            # Se o reCAPTCHA não estiver checkado.
-            elif _find_by_xpath(_recaptcha_unchecked_xpath) and not state:
-                state = States.RECAPTCHA_UNCHECKED
-
-            # Dando foco para a página padrão.
-            if current_frame:
-                self._webdriver._selenium_utils.switchToFrame(current_frame)
-            else:
-                self._webdriver.switch_to.default_content()
+                # Se o reCAPTCHA estiver expirado.
+                if _find_by_xpath(_recaptcha_expired_xpath):
+                    state = States.RECAPTCHA_EXPIRED
+                # Se o reCAPTCHA estiver checkado.
+                elif _find_by_xpath(_recaptcha_loading_xpath):
+                    state = States.RECAPTCHA_LOADING
+                # Se o reCAPTCHA estiver checkado.
+                elif _find_by_xpath(_recaptcha_checked_xpath):
+                    state = States.RECAPTCHA_CHECKED
+                # Se o reCAPTCHA não estiver checkado.
+                elif _find_by_xpath(_recaptcha_unchecked_xpath) and not state:
+                    state = States.RECAPTCHA_UNCHECKED
 
         # Retornando estado do reCAPTCHA.
         return state
 
     @_updateRecaptchaFrames
     def hide(self):
-        # Obtendo o frame atual.
-        current_frame = self._webdriver._selenium_utils.getCurrentFrame()
+        with self._webdriver._selenium_utils.keepCurrentFrame():
+            # Dando foco para a página principal.
+            self._webdriver.switch_to.default_content()
 
-        # Dando foco para a página principal.
-        self._webdriver.switch_to.default_content()
-
-        # Obtendo o reCAPTCHA atual pelo atributo 'name' e estilizando.
-        self._webdriver.execute_script(
-            f"document.getElementsByName('a-{self._frame_name}')[0].style."
-            f"border = ''"
-        )
-
-        if current_frame:
-            self._webdriver._selenium_utils.switchToFrame(current_frame)
+            # Obtendo o reCAPTCHA atual pelo atributo 'name' e estilizando.
+            self._webdriver.execute_script(
+                f"document.getElementsByName('a-{self._frame_name}')[0]"
+                f".style.border = ''"
+            )
 
     @_updateRecaptchaFrames
     def show(self):
-        # Obtendo o frame atual.
-        current_frame = self._webdriver._selenium_utils.getCurrentFrame()
+        with self._webdriver._selenium_utils.keepCurrentFrame():
+            # Dando foco para a página principal.
+            self._webdriver.switch_to.default_content()
 
-        # Dando foco para a página principal.
-        self._webdriver.switch_to.default_content()
+            # Obtendo o reCAPTCHA atual pelo atributo 'name' e estilizando.
+            self._webdriver.execute_script(
+                f"document.getElementsByName('a-{self._frame_name}')[0]"
+                f".style.border = 'solid 2px #0f0'"
+            )
 
-        # Obtendo o reCAPTCHA atual pelo atributo 'name' e estilizando.
-        self._webdriver.execute_script(
-            f"document.getElementsByName('a-{self._frame_name}')[0].style."
-            f"border = 'solid 2px #0f0'"
-        )
-
-        # Dando scroll para o elemento do reCAPTCHA.
-        self._webdriver._selenium_utils.scrollToElement(self._frame_box)
-
-        if current_frame:
-            self._webdriver._selenium_utils.switchToFrame(current_frame)
+            # Dando scroll para o elemento do reCAPTCHA.
+            self._webdriver._selenium_utils.scrollToElement(self._frame_box)
 
     @_updateRecaptchaFrames
     def solve(self) -> Tuple[str, list]:
@@ -682,7 +657,7 @@ class Bypass:
         # Aguardando a página carregar.
         self._webdriver._selenium_utils.waitLoadPage()
 
-        # Lista de caixas de Google reCAPCTHAs que foram encontrados.
+        # Lista de caixas de Google reCAPTCHAs que foram encontrados.
         recaptcha_box_list = self._webdriver.find_elements_by_xpath(
             Bypass._recaptcha_box_element_xpath
         )
@@ -712,7 +687,3 @@ class Bypass:
             )
 
         return container_recaptcha_instances
-
-
-# Verificando se o projeto local está desatualizado.
-ProjectVersion.verifyModuleVersion()

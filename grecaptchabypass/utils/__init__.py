@@ -5,11 +5,6 @@
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
-
- To do:
-    - Util to keep current frame using context manager.
-    - Docstrings on objects.
-    - Tests with behave or unittest.
 """
 
 from ..lib import (
@@ -17,6 +12,7 @@ from ..lib import (
 )
 
 from typing import Tuple
+import PIL.Image
 
 
 class _KeepCurrentFrame:
@@ -92,7 +88,7 @@ class SeleniumUtils:
         # Retornando o estado da página.
         return self._webdriver.execute_script("return document.readyState")
 
-    def humanClick(self, element: object):
+    def humanClick(self, element: object, additional_x=0, additional_y=0):
         # Definindo cadeia de ações.
         action_chains = _selenium.webdriver.common.action_chains.ActionChains(
             driver=self._webdriver
@@ -103,6 +99,9 @@ class SeleniumUtils:
             element_posx, element_posy = self.getElementCenterPosition(
                 element=element
             )
+
+            element_posx += additional_x
+            element_posy += additional_y
 
             # Dando foco para a página principal.
             self._webdriver.switch_to.default_content()
@@ -117,8 +116,8 @@ class SeleniumUtils:
             # Resetando as ações da cadeia de ações.
             action_chains.reset_actions()
 
-            # Clicando no elemento.
-            element.click()
+        # Clicando no elemento.
+        element.click()
 
     def scrollTo(self, posx: float, posy: float):
         # Executando JavaScript na página para rolar.
