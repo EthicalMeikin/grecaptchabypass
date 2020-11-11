@@ -14,10 +14,12 @@ import time
 from typing import Callable, Dict, List, NamedTuple
 
 # Bibliotecas externas.
+import colorama
 import grecaptchabypass
 import parsel
 import requests
 from selenium.webdriver.support.wait import WebDriverWait
+colorama.init()
 
 
 class ReceitaFederal:
@@ -60,8 +62,8 @@ class ReceitaFederal:
 
         # Chaves ou nomes pertencentes aos dados.
         cadastral_keys = [
-            'CPF', 'nome', 'data_nascimento', 'situacao', 'data_inscricao',
-            'digito_verificador', 'hora_comprovante', 'codigo_controle'
+            'CPF', 'Nome', 'DataNascimento', 'Situacao', 'DataInscricao',
+            'DigitoVerificador', 'HoraComprovante', 'CodigoControle'
         ]
 
         # Retorna um dicionário com os dados obtidos.
@@ -180,15 +182,33 @@ if __name__ == '__main__':
     # Instanciando classe Bypass.
     bypass = grecaptchabypass.Bypass(webdriver=browser)
 
-    print(
-        " Aguarde a página carregar para a demonstração funcionar "
-        "corretamente."
+    # Barras ou espaçador de linhas.
+    bars = colorama.Fore.CYAN + (57 * "=") + colorama.Fore.RESET
+
+    # Título da demonstração.
+    title = (
+        f" {colorama.Fore.CYAN}[Demo] {colorama.Fore.WHITE}Receita Federal - C"
+        f"onsulta de Situação Cadastral{colorama.Fore.RESET}"
     )
+
+    # Descrição da demonstração.
+    description = (
+        f"{colorama.Fore.WHITE}"
+        " Esta demonstração irá apresentar um desafio em relação "
+        "\n à um formulário que possui um Google ReCAPTCHA."
+        "\n"
+        "\n Serão usados dois métodos para realizar a consulta:"
+        "\n  - Selenium (-RÁPIDO -PRECISO +FACIL)"
+        "\n  - Requests (+RÁPIDO +PRECISO -FACIL)"
+    )
+
+    # Exibindo informações da demonstração.
+    print(f"{bars}\n{title}\n{bars}\n{description}\n{bars}")
 
     # Entrando na página onde o ReCAPTCHA está sendo exibido.
     browser.get(
-        'https://servicos.receita.fazenda.gov.br/servicos/cpf/'
-        'consultasituacao/ConsultaPublica.asp'
+      'https://servicos.receita.fazenda.gov.br/servicos/cpf/'
+      'consultasituacao/ConsultaPublica.asp'
     )
 
     input('> Pressione ENTER para quebrar o recaptcha.')
@@ -206,34 +226,34 @@ if __name__ == '__main__':
     grecaptcha_response, grecaptcha_cookies = recaptcha.solve()
 
     print(
-        "\n[!] Não demore muito para preencher estes dados, ou o reCAPTCHA "
-        "irá expirar.\n"
+      "\n[!] Não demore muito para preencher estes dados, ou o reCAPTCHA "
+      "irá expirar."
     )
 
     # Instanciando a classe ReceitaFederal.
     receitafederal = ReceitaFederal(
-        document=input('>  (1/2) Insira o CPF (xxx.xxx.xxx-xx): '),
-        birthdate=input('>  (2/2) Insira a Data de Nascimento (dd/mm/aaaa): ')
+      document=input('> (1/2) Insira o CPF (xxx.xxx.xxx-xx): '),
+      birthdate=input('> (2/2) Insira a Data de Nascimento (dd/mm/aaaa): ')
     )
 
     while True:
         # Pedindo para escolher um método.
         method_name = input(
-            '\n'
-            ' [1] Consultar com Requests (Mais rápido)\n'
-            ' [2] Consultar com Selenium (Mais lento)\n\n'
-            '> Escolha o método para consultar: '
+          '\n'
+          ' [1] Consultar com Requests (Mais rápido)\n'
+          ' [2] Consultar com Selenium (Mais lento)\n\n'
+          '> Escolha o método para consultar: '
         )
 
         # Dicionário com os métodos.
         methods = {
-            "1": lambda: receitafederal.with_requests(
-                cookies=grecaptcha_cookies,
-                gr_response=grecaptcha_response
-            ),
-            "2": lambda: receitafederal.with_selenium(
-                webdriver=browser
-            )
+          "1": lambda: receitafederal.with_requests(
+              cookies=grecaptcha_cookies,
+              gr_response=grecaptcha_response
+          ),
+          "2": lambda: receitafederal.with_selenium(
+              webdriver=browser
+          )
         }
 
         # Caso o método pedido estiver no dicionário.
@@ -244,14 +264,14 @@ if __name__ == '__main__':
             # Se os dados foram pegos com èxito.
             if cadastral_data:
                 if len(cadastral_data) > 1:
-                    print("JSON:", json.dumps(cadastral_data, indent=2))
+                    print("\nJSON:", json.dumps(cadastral_data, indent=2))
                 else:
                     print("Data de nascimento incorreta.")
             else:
                 print(
-                    "A consulta não houve retorno, você preencheu os dados "
-                    "corretamente?"
-                )
+                  "A consulta não houve retorno, você preencheu os dados "
+                  "corretamente?"
+                 )
             break
         else:
             print("\n Opção inexistente, tente de novo!")
